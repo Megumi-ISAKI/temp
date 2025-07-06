@@ -1,12 +1,55 @@
 $font-family: "Noto Serif JP", serif;
-
 $font-size-base: 16px;
 $line-height-base: 1.7;
 
-$color-base: #333333;
-$background-base: #fff;
-$color-key: #3EA1D1;
+// ライトモードの変数
+$colors: (
+    light: (key1: #8e3289,
+        key2: #be52be,
+        key3: #dd7cdd,
+        text: #111,
+        bg: #fff),
+    dark: (
+        key1: #a1579f,
+        key2: #dc80da,
+        key3: #edafed,
+        text: #fff,
+        bg: #111)
+);
 
+// CSSカスタムプロパティの生成
+:root {
+    @each $theme, $color-map in $colors {
+        @if $theme =='light' {
+            @each $name, $color in $color-map {
+                --color-#{$name}: #{$color};
+            }
+        }
+    }
+}
+
+// ダークモードの設定
+@media (prefers-color-scheme: dark) {
+    :root {
+        @each $theme, $color-map in $colors {
+            @if $theme =='dark' {
+                @each $name, $color in $color-map {
+                    --color-#{$name}: #{$color};
+                }
+            }
+        }
+    }
+}
+
+// カラー変数
+$color-key1: var(--color-key1);
+$color-key2: var(--color-key2);
+$color-key3: var(--color-key3);
+$color-text: var(--color-text);
+$color-bg: var(--color-bg);
+$color-gradation: linear-gradient(90deg, var(--color-bg) 0%, var(--color-key3) 50%, var(--color-key2) 100%);
+
+// ブレイクポイント
 $breakpoints: (
   "sp": "not screen and (min-width: 768px)",
   "tab": "screen and (min-width: 768px) and (max-width: 1024px)",
