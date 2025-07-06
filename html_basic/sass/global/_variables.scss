@@ -1,0 +1,14 @@
+$font-family: "Noto Serif JP", serif;
+
+$font-size-base: 16px;
+$line-height-base: 1.7;
+
+$color-base: #333333;
+$background-base: #fff;
+$color-key: #3EA1D1;
+
+$breakpoints: (
+  "sp": "not screen and (min-width: 768px)",
+  "tab": "screen and (min-width: 768px) and (max-width: 1024px)",
+  "pc": "screen and (min-width: 768px)"
+);
