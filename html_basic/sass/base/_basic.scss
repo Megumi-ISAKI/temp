@@ -1,3 +1,9 @@
 @use "../global/variables" as *;
 @use "../global/mixin" as *;
 
+/* 画像 ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    img {
+        filter: saturate(80%) brightness(80%);
+    }
+}
