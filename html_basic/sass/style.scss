@@ -1,7 +1,15 @@
-@use "./base/reset";
-@use "./base/basic";
-@use "./base/components";
+// foundation
+@use "./foundation/reset";
+@use "./foundation/variables";
+@use "./foundation/mixin";
+@use "./foundation/base";
 
-// 以下に各ページパーツを読み込み
+// layout
 
-@use "./page/index";
+
+// component
+
+
+// project
+
+// utility

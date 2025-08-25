@@ -1,0 +1,14 @@
+@use "../foundation/variables" as *;
+@use "../foundation/mixin" as *;
+
+/* 画像 ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    img {
+        filter: saturate(80%) brightness(80%);
+    }
+}
+
+/* モバイルメニュー開いた時のスクロール禁止 */
+body.opened {
+    overflow: hidden;
+}
