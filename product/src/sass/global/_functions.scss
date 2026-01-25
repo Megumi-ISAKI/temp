@@ -1,0 +1,26 @@
+@use "sass:math";
+
+@function rclamp($min, $max, $minViewport, $maxViewport) {
+  // 単位を除去して数値のみを取得
+  $minValue: math.div($min, 1px);
+  $maxValue: math.div($max, 1px);
+  $minViewportValue: math.div($minViewport, 1px);
+  $maxViewportValue: math.div($maxViewport, 1px);
+
+  $vwScale: math.div(
+    $maxValue - $minValue,
+    $maxViewportValue - $minViewportValue
+  ); // vw単位でのスケールを計算
+  $baseOffset: $minValue - $minViewportValue * $vwScale; // 基準となる最小値からのオフセットを計算
+
+  $minRem: math.div($minValue, 16); // 最小値をremに変換
+  $maxRem: math.div($maxValue, 16); // 最大値をremに変換
+  $baseOffsetRem: math.div($baseOffset, 16); // オフセットをremに変換
+  $vwScaleRem: $vwScale * 100; // vwスケールを調整
+
+  @return clamp(
+    #{$minRem}rem,
+    calc(#{$baseOffsetRem}rem + #{$vwScaleRem}vw),
+    #{$maxRem}rem
+  );
+}

@@ -1,7 +1,44 @@
+// font
 $font-family: "Noto Serif JP", serif;
 $font-size-base: 16px;
 $line-height-base: 1.7;
 
+// 色
+$color-primary: #000;
+
+
+// レイアウト
+$inner-width: 1130px; // インナー幅サイズ
+$sp-width: 768px; // スマホサイズ
+
+// ブレークポイント
+$breakpoints: (
+  // スマホ以下の場合
+  "sp": "screen and (max-width: #{$sp-width - 1px})",
+  // タブレット以下の場合
+  "tab": "screen and (max-width: #{$inner-width - 1px})",
+  // タブレット以上の場合
+  "pc": "screen and (min-width: #{$inner-width})"
+);
+
+// 重なり順の定義
+$layer: (
+  // ローディング
+  loading: 300,
+  // モーダル
+  modal: 100,
+  // ドロワー
+  drawer: 40,
+  // フローティング
+  floating: 30,
+  // ヘッダー
+  header: 20,
+  // フッター
+  footer: 10,
+  default: 1
+);
+
+// ここから下はダークモードを使う時に使う変数
 // ライトモードの変数
 $colors: (
     light: (key1: #8e3289,
@@ -48,10 +85,3 @@ $color-key3: var(--color-key3);
 $color-text: var(--color-text);
 $color-bg: var(--color-bg);
 $color-gradation: linear-gradient(90deg, var(--color-bg) 0%, var(--color-key3) 50%, var(--color-key2) 100%);
-
-// ブレイクポイント
-$breakpoints: (
-  "sp": "not screen and (min-width: 768px)",
-  "tab": "screen and (min-width: 768px) and (max-width: 1024px)",
-  "pc": "screen and (min-width: 768px)"
-);
