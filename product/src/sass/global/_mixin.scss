@@ -3,7 +3,7 @@
 // メディアクエリー
 
 @mixin mq($breakpoint: sp) {
-	@media #{map-get(global.$breakpoints, $breakpoint)} {
+	@media #{map-get($breakpoints, $breakpoint)} {
 		@content;
 	}
 }	

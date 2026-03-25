@@ -18,9 +18,18 @@
   $baseOffsetRem: math.div($baseOffset, 16); // オフセットをremに変換
   $vwScaleRem: $vwScale * 100; // vwスケールを調整
 
-  @return clamp(
-    #{$minRem}rem,
-    calc(#{$baseOffsetRem}rem + #{$vwScaleRem}vw),
-    #{$maxRem}rem
-  );
+  // 負の値の場合はclampの引数を入れ替える必要がある
+  @if $minValue < 0 and $maxValue < 0 {
+    @return clamp(
+      #{$maxRem}rem,
+      calc(#{$baseOffsetRem}rem + #{$vwScaleRem}vw),
+      #{$minRem}rem
+    );
+  } @else {
+    @return clamp(
+      #{$minRem}rem,
+      calc(#{$baseOffsetRem}rem + #{$vwScaleRem}vw),
+      #{$maxRem}rem
+    );
+  }
 }

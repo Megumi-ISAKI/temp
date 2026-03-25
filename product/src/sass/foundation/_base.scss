@@ -1,5 +1,4 @@
-@use "../foundation/variables" as *;
-@use "../foundation/mixin" as *;
+@use "../global" as *;
 
 /* 画像 ダークモード対応 */
 @media (prefers-color-scheme: dark) {
